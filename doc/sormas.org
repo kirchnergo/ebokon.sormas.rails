@@ -1,0 +1,18 @@
+#+Title: Surveillance and Outbreak Management tool
+
+* Background
+
+* Users and Roles
+
+- Informant and Rumour officer
+- Surveillance officer and Surveillance supervisor
+- Case supervisor
+- Contact officer and Contact supervisor
+
+* Rumor Investigation
+
+* Surveillance
+
+* Case Handling
+
+* Contact Tracing

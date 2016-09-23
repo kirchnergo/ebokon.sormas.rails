@@ -1,0 +1,18 @@
+#+Title: Logbook
+
+* Initialization
+
+* Gems
+
+** BDD
+
+
+** Auditing
+
+[[https://ruby.libhunt.com/categories/179-auditing][auditing gems]]
+[[http://zacheryph.github.io/2009/11/its-audit-time/][its-audit-time]]
+
+[[https://github.com/airblade/paper_trail][paper_trail]]
+[[https://github.com/collectiveidea/audited][audited]]
+[[https://github.com/laserlemon/vestal_versions][vestal_versions]]
+[[https://github.com/rubysherpas/paranoia][paranoia]]
