@@ -1,6 +1,6 @@
-%h1 Listing people
+%h1 All People
 
-%table
+%table.table
   %thead
     %tr
       %th First name
@@ -9,10 +9,10 @@
       %th Age
       %th Date of birth
       %th Marital state
-      %th Phone1
-      %th Phone1 type
-      %th Phone2
-      %th Phone2 type
+      %th Phone
+      %th Type
+      %th Phone
+      %th Type
       %th Occupation
       %th
       %th
@@ -22,7 +22,7 @@
     - @people.each do |person|
       %tr
         %td= person.first_name
-        %td= person.last_name
+        %td= link_to person.last_name, edit_person_path(person)
         %td= person.sex
         %td= person.age
         %td= person.date_of_birth
@@ -32,10 +32,8 @@
         %td= person.phone2
         %td= person.phone2_type
         %td= person.occupation
-        %td= link_to 'Show', person
-        %td= link_to 'Edit', edit_person_path(person)
-        %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', person, class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+= paginate @people
 %br
-
-= link_to 'New Person', new_person_path
+= link_to 'New Person', new_person_path, class: "btn btn-primary"

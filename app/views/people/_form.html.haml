@@ -5,39 +5,41 @@
       %ul
         - @person.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
+  %p
     = f.label :first_name
-    = f.text_field :first_name
-  .field
+    = f.text_field :first_name, class: "form-control", placeholder: 'First name'
+  %p
     = f.label :last_name
-    = f.text_field :last_name
-  .field
+    = f.text_field :last_name, class: "form-control", placeholder: 'Last name'
+  %p
     = f.label :sex
-    = f.number_field :sex
-  .field
+    = f.select :sex, Person.sexes.map { |key, value| [key.humanize, key] }, class: "form-control"
+  %p
     = f.label :age
-    = f.number_field :age
-  .field
+    = f.number_field :age, class: "form-control", placeholder: 'Age'
+  %p
     = f.label :date_of_birth
-    = f.date_select :date_of_birth
-  .field
+    = f.text_field :date_of_birth, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: 'YYYY-MM-DD'
+  %p
     = f.label :marital_state
-    = f.number_field :marital_state
-  .field
-    = f.label :phone1
-    = f.text_field :phone1
-  .field
-    = f.label :phone1_type
-    = f.number_field :phone1_type
-  .field
-    = f.label :phone2
-    = f.text_field :phone2
-  .field
-    = f.label :phone2_type
-    = f.number_field :phone2_type
-  .field
+    = f.select :marital_state, Person.marital_states.map { |key, value| [key.humanize, key] }, class: "form-control"
+  %p
+    = f.label :phone
+    = f.phone_field :phone1, class: "form-control", placeholder: 'Phone number'
+  %p
+    = f.label "Type"
+    = f.select :phone1_type, Person.phone1_types.map { |key, value| [key.humanize, key] }, class: "form-control"
+  %p
+    = f.label :phone
+    = f.phone_field :phone2, class: "form-control", placeholder: 'Phone number'
+  %p
+    = f.label "Type"
+    = f.select :phone2_type, Person.phone2_types.map { |key, value| [key.humanize, key] }, class: "form-control"
+  %p
     = f.label :occupation
-    = f.number_field :occupation
+    = f.select :occupation, Person.occupations.map { |key, value| [key.humanize, key] }, class: "form-control"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-primary"
+
+:javascript
+  $('[data-behaviour~=datepicker]').datepicker({format: 'yyyy-mm-dd'});

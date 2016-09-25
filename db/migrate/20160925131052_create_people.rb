@@ -3,15 +3,15 @@ class CreatePeople < ActiveRecord::Migration[5.0]
     create_table :people do |t|
       t.string :first_name
       t.string :last_name
-      t.integer :sex
+      t.integer :sex, default: 0
       t.integer :age
       t.date :date_of_birth
-      t.integer :marital_state
+      t.integer :marital_state, default: 0
       t.string :phone1
-      t.integer :phone1_type
+      t.integer :phone1_type, default: 0
       t.string :phone2
-      t.integer :phone2_type
-      t.integer :occupation
+      t.integer :phone2_type, default: 0
+      t.integer :occupation, default: 0
 
       t.timestamps
     end
