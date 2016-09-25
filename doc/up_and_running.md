@@ -1,17 +1,16 @@
 # Up and Running
 
+## Prerequisites
+
 - Rails version: 5.0.0.1
 
-* System dependencies
+## Database 
 
-* Configuration
+## Test
 
-* Database creation
+## Deployment
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines)
-
-* Deployment instructions
+For the moment, just
+```sh
+bundle exec rails s
+```
