@@ -1,0 +1,41 @@
+%h1 Listing people
+
+%table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Sex
+      %th Age
+      %th Date of birth
+      %th Marital state
+      %th Phone1
+      %th Phone1 type
+      %th Phone2
+      %th Phone2 type
+      %th Occupation
+      %th
+      %th
+      %th
+
+  %tbody
+    - @people.each do |person|
+      %tr
+        %td= person.first_name
+        %td= person.last_name
+        %td= person.sex
+        %td= person.age
+        %td= person.date_of_birth
+        %td= person.marital_state
+        %td= person.phone1
+        %td= person.phone1_type
+        %td= person.phone2
+        %td= person.phone2_type
+        %td= person.occupation
+        %td= link_to 'Show', person
+        %td= link_to 'Edit', edit_person_path(person)
+        %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Person', new_person_path
