@@ -13,5 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-datepicker
+//= require bootstrap/alert
+//= require bootstrap/dropdown
+//= require bootstrap-select
+//= require_tree .
+
+$(document).ready(function() {
+    $('.selectpicker').selectpicker();
+});

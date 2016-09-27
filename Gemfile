@@ -34,6 +34,10 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-kaminari-views'
+gem 'bootstrap-select-rails'
+gem 'bootstrap-select-wrapper-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
