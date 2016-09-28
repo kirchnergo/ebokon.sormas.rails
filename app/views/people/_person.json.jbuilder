@@ -1,0 +1,2 @@
+json.extract! person, :id, :first_name, :last_name, :sex, :age, :date_of_birth, :marital_state, :phone1, :phone1_type, :phone2, :phone2_type, :occupation, :created_at, :updated_at
+json.url person_url(person, format: :json)
