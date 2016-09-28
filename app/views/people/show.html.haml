@@ -1,36 +1,33 @@
 %p
-  %b First name:
-  = @person.first_name
+  %b
+    = @person.first_name
+    = @person.last_name
 %p
-  %b Last name:
-  = @person.last_name
+  %i.fa.fa-puzzle-piece
+  = @person.sex.humanize
+  %i.fa.fa-sun-o
+  = @person.age.to_s
+  %i.fa.fa-birthday-cake
+  = @person.date_of_birth.to_s
+  - if @person.occupation != :unknown.to_s
+    %i.fa.fa-briefcase
+    = @person.occupation.humanize
+  - if  @person.marital_state != :unknown.to_s
+    %i.fa.fa-heart
+    = @person.marital_state.humanize
 %p
-  %b Sex:
-  = @person.sex
-%p
-  %b Age:
-  = @person.age
-%p
-  %b Date of birth:
-  = @person.date_of_birth
-%p
-  %b Marital state:
-  = @person.marital_state
-%p
-  %b Phone:
-  = @person.phone1
-%p
-  %b Type:
-  = @person.phone1_type
-%p
-  %b Phone:
-  = @person.phone2
-%p
-  %b Type:
-  = @person.phone2_type
-%p
-  %b Occupation:
-  = @person.occupation
+  - if @person.phone1?
+    - if @person.phone1_type == :mobile.to_s
+      %i.fa.fa-mobile
+    - else
+      %i.fa.fa-phone
+    = @person.phone1 if @person.phone1?
+  - if @person.phone2?
+    - if @person.phone2_type == :mobile.to_s
+      %i.fa.fa-mobile
+    - else
+      %i.fa.fa-phone
+    = @person.phone2
 
 = link_to 'Edit', edit_person_path(@person)
 \|
