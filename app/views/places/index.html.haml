@@ -1,0 +1,31 @@
+%h1 Listing places
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Type of Place
+      %th Lon
+      %th Lat
+      %th Description
+      %th #Addresses
+      %th
+      %th
+      %th
+
+  %tbody
+    - @places.each do |place|
+      %tr
+        %td= place.name
+        %td= place.type_of_place
+        %td= place.lon
+        %td= place.lat
+        %td= place.description
+        %td= place.addresses.count
+        %td= link_to 'Show', place
+        %td= link_to 'Edit', edit_place_path(place)
+        %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Place', new_place_path

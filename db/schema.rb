@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925131052) do
+ActiveRecord::Schema.define(version: 20160929133130) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "line3"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "locality"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone1"
+    t.text     "phone1_notes"
+    t.string   "phone2"
+    t.text     "phone2_notes"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "place_id"
+    t.index ["place_id"], name: "index_addresses_on_place_id"
+  end
+
+  create_table "addresses_people", id: false, force: :cascade do |t|
+    t.integer "person_id",          null: false
+    t.integer "address_id",         null: false
+    t.integer "address_for_person"
+    t.index ["address_id", "person_id"], name: "index_addresses_people_on_address_id_and_person_id"
+    t.index ["person_id", "address_id"], name: "index_addresses_people_on_person_id_and_address_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
@@ -24,6 +52,16 @@ ActiveRecord::Schema.define(version: 20160925131052) do
     t.string   "phone2"
     t.integer  "phone2_type"
     t.integer  "occupation"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "type_of_place"
+    t.float    "lon"
+    t.float    "lat"
+    t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

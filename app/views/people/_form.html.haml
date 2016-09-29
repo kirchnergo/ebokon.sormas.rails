@@ -53,6 +53,8 @@
         %p
           = f.label :occupation
           = f.select :occupation, Person.occupations.map { |key, value| [key.humanize, key] }, {class: "form-control selectpicker", "data-live-search" => "true" }
+
+    = link_to "New Address", new_person_address_path(@person), class: "btn btn-primary"
     .form-group
       .actions
         = f.submit 'Save', class: "btn btn-primary"

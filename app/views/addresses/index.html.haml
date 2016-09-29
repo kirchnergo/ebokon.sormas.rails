@@ -1,0 +1,47 @@
+%h1 All Addresses
+
+%table.table
+  %thead
+    %tr
+      %th Line1
+      %th Line2
+      %th Line3
+      %th Street
+      %th Zip
+      %th Locality
+      %th District
+      %th State
+      %th Country
+      %th Phone1
+      %th Phone1 notes
+      %th Phone2
+      %th Phone2 notes
+      %th
+      %th
+      %th
+
+  %tbody
+    - @addresses.each do |address|
+      %tr
+        %td= address.line1
+        %td= address.line2
+        %td= address.line3
+        %td= address.street
+        %td= address.zip
+        %td= address.locality
+        %td= address.district
+        %td= address.state
+        %td= address.country
+        %td= address.phone1
+        %td= address.phone1_notes
+        %td= address.phone2
+        %td= address.phone2_notes
+        %td= link_to raw(fa_icon("eye", class: "th-large")), address
+        %td= link_to raw(fa_icon("pencil", class: "th-large")), edit_address_path(address)
+        %td= link_to raw(fa_icon("trash", class: "th-large")), address, class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= paginate @addresses, :theme => 'twitter-bootstrap-3'
+%br
+= link_to 'New Address', new_address_path, class: "btn btn-primary"

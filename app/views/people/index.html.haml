@@ -32,7 +32,9 @@
         %td= person.phone2
         %td= person.phone2_type
         %td= person.occupation
-        %td= link_to 'Destroy', person, class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to raw(fa_icon("eye", class: "th-large")), person
+        %td= link_to raw(fa_icon("pencil", class: "th-large")), edit_person_path(person)
+        %td= link_to raw(fa_icon("trash", class: "th-large")), person, class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = paginate @people, :theme => 'twitter-bootstrap-3'
 %br

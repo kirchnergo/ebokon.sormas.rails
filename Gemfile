@@ -37,8 +37,8 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-kaminari-views'
 gem 'bootstrap-select-rails'
 gem 'bootstrap-select-wrapper-rails'
-gem "font-awesome-rails"
-
+gem 'font-awesome-rails'
+gem 'cocoon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -53,6 +53,8 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

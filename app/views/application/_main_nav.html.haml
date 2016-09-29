@@ -10,6 +10,16 @@
       =link_to "SORMAS", root_path, class: "navbar-brand"
     / Collect the nav links, forms, and other content for toggling
     #main-nav.collapse.navbar-collapse
-      %ul.nav.navbar-nav
+      %row-fluid.nav.nav-pills
         %li
-          =link_to "People", people_path
+          =link_to raw(fa_icon("users", class: "th-large fa-2x")), people_path
+        %li
+          =link_to raw(fa_icon("home", class: "th-large fa-2x")), addresses_path
+        %li
+          =link_to raw(fa_icon("map-marker", class: "th-large fa-2x")), places_path
+        %li
+          =link_to raw(fa_icon("question", class: "th-large fa-2x")), root_path
+        %li
+          =link_to raw(fa_icon("tasks", class: "th-large fa-2x")), root_path
+        %li
+          =link_to raw(fa_icon("stethoscope", class: "th-large fa-2x")), root_path

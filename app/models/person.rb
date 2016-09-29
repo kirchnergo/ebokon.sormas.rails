@@ -1,5 +1,8 @@
 class Person < ApplicationRecord
   paginates_per 5
+
+  has_many :addresses, inverse_of: :people
+
   enum sex: [:unknown, :male, :female], _prefix: true
   enum phone1_type: [:unknown, :landline, :mobile], _prefix: true
   enum phone2_type: [:unknown, :landline, :mobile], _prefix: true
