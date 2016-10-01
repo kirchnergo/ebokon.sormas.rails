@@ -1,4 +1,4 @@
-%h1 Listing places
+%h1 All Places
 
 %table.table
   %thead
@@ -26,6 +26,6 @@
         %td= link_to 'Edit', edit_place_path(place)
         %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+= paginate @places, :theme => 'twitter-bootstrap-3'
 %br
-
-= link_to 'New Place', new_place_path
+= link_to 'New Place', new_place_path, class: "btn btn-primary"

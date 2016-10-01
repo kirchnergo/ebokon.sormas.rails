@@ -6,44 +6,43 @@
         - @address.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :line1
-    = f.text_field :line1
-  .field
-    = f.label :line2
-    = f.text_field :line2
-  .field
-    = f.label :line3
-    = f.text_field :line3
-  .field
-    = f.label :street
-    = f.text_field :street
-  .field
-    = f.label :zip
-    = f.text_field :zip
-  .field
-    = f.label :locality
-    = f.text_field :locality
-  .field
-    = f.label :district
-    = f.text_field :district
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :country
-    = f.text_field :country
-  .field
-    = f.label :phone1
-    = f.text_field :phone1
-  .field
-    = f.label :phone1_notes
-    = f.text_area :phone1_notes
-  .field
-    = f.label :phone2
-    = f.text_field :phone2
-  .field
-    = f.label :phone2_notes
-    = f.text_area :phone2_notes
+  .form-group
+    .col-sm-6
+      %p
+        = f.label :line1
+        = f.text_field :line1, class: "form-control", placeholder: 'Line 1'
+    .col-sm-6
+      %p
+        = f.label :line2
+        = f.text_field :line2, class: "form-control", placeholder: 'Line 2'
+  .form-group
+    .col-sm-12
+      %p
+        = f.label :street
+        = f.text_field :street, class: "form-control", placeholder: 'Street'
+  .form-group
+    .col-sm-4
+      %p
+        = f.label :zip
+        = f.text_field :zip, class: "form-control", placeholder: 'Zip'
+    .col-sm-8
+      %p
+        = f.label :locality
+        = f.text_field :locality, class: "form-control", placeholder: 'City'
+  .form-group
+    .col-sm-4
+      %p
+        = f.label :district
+        = f.text_field :district, class: "form-control", placeholder: 'District'
+    .col-sm-4
+      %p
+        = f.label :state
+        = f.text_field :state, class: "form-control", placeholder: 'State'
+    .col-sm-4
+      %p
+        = f.label :country
+        = f.text_field :country, class: "form-control", placeholder: 'Country'
+
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-primary"

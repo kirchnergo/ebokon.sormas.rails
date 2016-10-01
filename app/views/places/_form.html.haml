@@ -35,7 +35,7 @@
     = f.fields_for :addresses do |address|
       = render 'address_fields', f: address
     .links
-      = link_to_add_association 'add address', f, :addresses
+      = link_to_add_association raw(fa_icon("plus", class: "th-large")), f, :addresses, :force_non_association_create => true, class: "btn btn-success"
 
   .actions
     = f.submit 'Save', class: "btn btn-primary"

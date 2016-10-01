@@ -1,7 +1,8 @@
 class Person < ApplicationRecord
   paginates_per 5
 
-  has_many :addresses, inverse_of: :people
+  has_and_belongs_to_many :addresses, :through => AddressesPeople
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
 
   enum sex: [:unknown, :male, :female], _prefix: true
   enum phone1_type: [:unknown, :landline, :mobile], _prefix: true
