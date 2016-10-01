@@ -57,6 +57,7 @@ GEM
       sass (>= 3.3.4)
     bootstrap-select-rails (1.6.3)
     bootstrap-select-wrapper-rails (1.10.0)
+    bootstrap_form (2.5.1)
     builder (3.2.2)
     byebug (9.0.5)
     cocoon (1.2.9)
@@ -205,6 +206,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-select-rails
   bootstrap-select-wrapper-rails
+  bootstrap_form
   byebug
   cocoon
   coffee-rails (~> 4.2)

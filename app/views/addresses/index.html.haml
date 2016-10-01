@@ -36,9 +36,9 @@
         %td= address.phone1_notes
         %td= address.phone2
         %td= address.phone2_notes
-        %td= link_to raw(fa_icon("eye", class: "th-large")), address
-        %td= link_to raw(fa_icon("pencil", class: "th-large")), edit_address_path(address)
-        %td= link_to raw(fa_icon("trash", class: "th-large")), address, class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to raw(fa_icon("eye", class: "th-large text-success")), address
+        %td= link_to raw(fa_icon("pencil", class: "th-large text-warning")), edit_address_path(address)
+        %td= link_to raw(fa_icon("trash", class: "th-large text-danger")), address, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

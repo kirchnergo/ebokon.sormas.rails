@@ -1,66 +1,42 @@
-= form_for @person do |f|
+= bootstrap_form_for @person do |f|
   - if @person.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
-      %ul
-        - @person.errors.full_messages.each do |msg|
-          %li= msg
-  %p
     .form-group
-      .col-sm-6
-        %p
-          = f.label :first_name
-          = f.text_field :first_name, class: "form-control", placeholder: 'First name'
-      .col-sm-6
-        %p
-          = f.label :last_name
-          = f.text_field :last_name, class: "form-control", placeholder: 'Last name'
-    .form-group
-      .col-sm-6
-        %p
-          = f.label :date_of_birth
-          = f.text_field :date_of_birth, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: 'YYYY-MM-DD'
-      .col-sm-6
-        %p
-          = f.label :age
-          = f.number_field :age, class: "form-control", placeholder: 'Age'
-    .form-group
-      .col-sm-6
-        %p
-          = f.label :sex
-          = f.select :sex, Person.sexes.map { |key, value| [key.humanize, key] }, class: "form-control selectpicker"
-      .col-sm-6
-        %p
-          = f.label :marital_state
-          = f.select :marital_state, Person.marital_states.map { |key, value| [key.humanize, key] }, class: "form-control"
-    .form-group
-      .col-sm-6
-        %p
-          = f.label :phone
-          = f.phone_field :phone1, class: "form-control", placeholder: 'Phone number'
-        %p
-          = f.label "Type"
-          = f.select :phone1_type, Person.phone1_types.map { |key, value| [key.humanize, key] }, class: "form-control"
-      .col-sm-6
-        %p
-          = f.label :phone
-          = f.phone_field :phone2, class: "form-control", placeholder: 'Phone number'
-        %p
-          = f.label "Type"
-          = f.select :phone2_type, Person.phone2_types.map { |key, value| [key.humanize, key] }, class: "form-control"
-    .form-group
-      .col-sm-12
-        %p
-          = f.label :occupation
-          = f.select :occupation, Person.occupations.map { |key, value| [key.humanize, key] }, {class: "form-control selectpicker", "data-live-search" => "true" }
+      = f.alert_message "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
 
-    %h3 Addresses
-    %p
-      = f.fields_for :addresses do |address|
-        = render 'address_fields', f: address
-    %p
-    .form-group
-      = link_to_add_association raw(fa_icon("plus", class: "th-large")), f, :addresses, :force_non_association_create => true, class: "btn btn-success"
+  .form-group
+    .col-sm-6
+      = f.text_field :first_name, class: "form-control", placeholder: 'First name'
+    .col-sm-6
+      = f.text_field :last_name, class: "form-control", placeholder: 'Last name'
+  .form-group
+    .col-sm-6
+      = f.text_field :date_of_birth, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: 'YYYY-MM-DD'
+    .col-sm-6
+      = f.number_field :age, class: "form-control", placeholder: 'Age'
+  .form-group
+    .col-sm-6
+      = f.select :sex, Person.sexes.map { |key, value| [key.humanize, key] }, class: "form-control selectpicker"
+    .col-sm-6
+      = f.select :marital_state, Person.marital_states.map { |key, value| [key.humanize, key] }, class: "form-control"
+  .form-group
+    .col-sm-6
+      = f.phone_field :phone1, class: "form-control", placeholder: 'Phone number'
+      = f.select :phone1_type, Person.phone1_types.map { |key, value| [key.humanize, key] }, class: "form-control"
+    .col-sm-6
+      = f.phone_field :phone2, class: "form-control", placeholder: 'Phone number'
+      = f.select :phone2_type, Person.phone2_types.map { |key, value| [key.humanize, key] }, class: "form-control"
+  .form-group
+    .col-sm-12
+      = f.select :occupation, Person.occupations.map { |key, value| [key.humanize, key] }, {class: "form-control selectpicker", "data-live-search" => "true" }
+
+  %h3 Addresses
+  %p
+    = f.fields_for :addresses do |address|
+      = render 'address_fields', f: address
+  %p
+  .form-group
+    = link_to_add_association raw(fa_icon("plus", class: "th-large")), f, :addresses, :force_non_association_create => true, class: "btn btn-success"
+
   .actions
     = f.submit 'Save', class: "btn btn-primary"
 

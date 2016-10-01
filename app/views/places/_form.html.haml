@@ -1,39 +1,27 @@
-= form_for @place do |f|
+= bootstrap_form_for @place do |f|
   - if @place.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@place.errors.count, "error")} prohibited this place from being saved:"
-      %ul
-        - @place.errors.full_messages.each do |msg|
-          %li= msg
+    .form-group
+      = f.alert_message "#{pluralize(@place.errors.count, "error")} prohibited this place from being saved:"
 
+  .form-group
+    .col-sm-6
+      = f.text_field :name, class: "form-control", placeholder: 'Name'
+    .col-sm-6
+      = f.number_field :type_of_place, class: "form-control", placeholder: 'Type of Place'
+  .form-group
+    .col-sm-6
+      = f.number_field :lon, class: "form-control", placeholder: 'Longitude'
+    .col-sm-6
+      = f.number_field :lat, class: "form-control", placeholder: 'Latitude'
+  .form-group
+    .col-sm-12
+      = f.text_area :description, class: "form-control", placeholder: 'Description of Place ...'
+
+  %h3 Addresses
   %p
-    .form-group
-      .col-sm-6
-        %p
-          = f.label :name
-          = f.text_field :name, class: "form-control", placeholder: 'Name'
-      .col-sm-6
-        %p
-          = f.label :type_of_place
-          = f.number_field :type_of_place, class: "form-control", placeholder: 'Type of Place'
-    .form-group
-      .col-sm-6
-        %p
-          = f.label :lon
-          = f.number_field :lon, class: "form-control", placeholder: 'Longitude'
-      .col-sm-6
-        %p
-          = f.label :lat
-          = f.number_field :lat, class: "form-control", placeholder: 'Latitude'
-    .form-group
-      .col-sm-12
-        %p
-          = f.label :description
-          = f.text_area :description, class: "form-control", placeholder: 'Description of Place ...'
-
-    %h3 Addresses
-    = f.fields_for :addresses do |address|
-      = render 'address_fields', f: address
+  = f.fields_for :addresses do |address|
+    = render 'address_fields', f: address
+  %p
     .links
       = link_to_add_association raw(fa_icon("plus", class: "th-large")), f, :addresses, :force_non_association_create => true, class: "btn btn-success"
 

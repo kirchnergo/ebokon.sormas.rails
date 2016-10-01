@@ -22,9 +22,10 @@
         %td= place.lat
         %td= place.description
         %td= place.addresses.count
-        %td= link_to 'Show', place
-        %td= link_to 'Edit', edit_place_path(place)
-        %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to raw(fa_icon("eye", class: "th-large text-success")), place
+        %td= link_to raw(fa_icon("pencil", class: "th-large text-warning")), edit_place_path(place)
+        %td= link_to raw(fa_icon("trash", class: "th-large text-danger")), place, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 = paginate @places, :theme => 'twitter-bootstrap-3'
 %br
